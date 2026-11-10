@@ -6,6 +6,9 @@ import pandas as pd
 io = psutil.net_io_counters(pernic=True)
 # all_macs = {iface.values() for iface in io.items()}
 
+print("sniff sent")
+scapy.sniff(filter="icmp and host 66.35.250.251", count=2, timeout=10) #will run indefinitely until packets are found
+print("timeout")
 #dictionary to map connection to process
 connection2pid = {}
 
